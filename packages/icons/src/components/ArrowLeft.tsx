@@ -1,0 +1,18 @@
+import * as React from 'react';
+import type { SVGProps } from 'react';
+const SvgArrowLeft = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    fill="none"
+    viewBox="0 0 24 24"
+    {...props}
+  >
+    <path
+      fill="currentColor"
+      d="M21.75 12a.75.75 0 0 1-.75.75H4.811l5.72 5.72a.75.75 0 0 1-1.06 1.061l-7-7a.75.75 0 0 1-.162-.817.8.8 0 0 1 .162-.244l7-7a.75.75 0 1 1 1.061 1.061l-5.72 5.72H21a.75.75 0 0 1 .75.749"
+    />
+  </svg>
+);
+export default SvgArrowLeft;

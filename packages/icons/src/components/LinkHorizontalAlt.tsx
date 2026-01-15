@@ -1,0 +1,18 @@
+import * as React from 'react';
+import type { SVGProps } from 'react';
+const SvgLinkHorizontalAlt = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    fill="none"
+    viewBox="0 0 24 24"
+    {...props}
+  >
+    <path
+      fill="currentColor"
+      d="M10 16.75H7a4.75 4.75 0 0 1-3.356-1.386A4.76 4.76 0 0 1 2.25 12 4.756 4.756 0 0 1 7 7.25h1a.75.75 0 0 1 0 1.5H7A3.254 3.254 0 0 0 3.75 12c0 .862.34 1.679.954 2.303A3.26 3.26 0 0 0 7 15.25h3A3.254 3.254 0 0 0 13.25 12a.75.75 0 0 1 1.5 0A4.756 4.756 0 0 1 10 16.75M21.75 12c0-1.258-.492-2.45-1.394-3.364A4.76 4.76 0 0 0 17 7.25h-3A4.756 4.756 0 0 0 9.25 12a.75.75 0 0 0 1.5 0A3.254 3.254 0 0 1 14 8.75h3c.861 0 1.68.339 2.296.947.615.624.954 1.442.954 2.303A3.254 3.254 0 0 1 17 15.25h-1a.75.75 0 0 0 0 1.5h1A4.756 4.756 0 0 0 21.75 12"
+    />
+  </svg>
+);
+export default SvgLinkHorizontalAlt;

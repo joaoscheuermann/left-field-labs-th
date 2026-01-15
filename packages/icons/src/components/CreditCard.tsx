@@ -1,0 +1,18 @@
+import * as React from 'react';
+import type { SVGProps } from 'react';
+const SvgCreditCard = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    fill="none"
+    viewBox="0 0 24 24"
+    {...props}
+  >
+    <path
+      fill="#121212"
+      d="M18 4.25H6C3.582 4.25 2.25 5.582 2.25 8v8c0 2.418 1.332 3.75 3.75 3.75h12c2.418 0 3.75-1.332 3.75-3.75V8c0-2.418-1.332-3.75-3.75-3.75M20.25 16c0 1.577-.673 2.25-2.25 2.25H6c-1.577 0-2.25-.673-2.25-2.25v-5.25h16.5zm0-6.75H3.75V8c0-1.577.673-2.25 2.25-2.25h12c1.577 0 2.25.673 2.25 2.25zM6.25 15a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H7a.75.75 0 0 1-.75-.75"
+    />
+  </svg>
+);
+export default SvgCreditCard;

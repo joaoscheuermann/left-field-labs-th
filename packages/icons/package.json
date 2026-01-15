@@ -1,0 +1,36 @@
+{
+  "name": "@org/icons",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./dist/index.esm.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.esm.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "@org/source": "./src/index.ts",
+      "types": "./dist/index.esm.d.ts",
+      "import": "./dist/index.esm.js",
+      "default": "./dist/index.esm.js"
+    }
+  },
+  "devDependencies": {
+    "@svgr/cli": "^8.1.0"
+  },
+  "nx": {
+    "targets": {
+      "generate-icons": {
+        "command": "svgr --out-dir src/components --typescript --icon --replace-attr-values \"#2A2A2A=currentColor\" assets",
+        "inputs": [
+          "{projectRoot}/assets/**/*"
+        ],
+        "outputs": [
+          "{projectRoot}/src/components"
+        ],
+        "options": {
+          "cwd": "packages/icons"
+        }
+      }
+    }
+  }
+}
