@@ -1,4 +1,3 @@
-import * as React from 'react';
 import type { SVGProps } from 'react';
 const SvgChat = (props: SVGProps<SVGSVGElement>) => (
   <svg
@@ -10,7 +9,7 @@ const SvgChat = (props: SVGProps<SVGSVGElement>) => (
     {...props}
   >
     <path
-      fill="#121212"
+      fill="currentColor"
       d="M12.001 3a8.999 8.999 0 0 1 0 17.998c-1.34 0-2.62-.3-3.76-.83-.44-.21-.95-.21-1.42-.06l-2.5.84c-.78.26-1.53-.49-1.27-1.27l.84-2.5c.15-.47.15-.98-.06-1.42a8.9 8.9 0 0 1-.83-3.76 9 9 0 0 1 9-8.998"
     />
   </svg>
