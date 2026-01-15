@@ -26,4 +26,7 @@ export default defineConfig(() => ({
       transformMixedEsModules: true,
     },
   },
+  resolve: {
+    conditions: ['@org/source'],
+  },
 }));
