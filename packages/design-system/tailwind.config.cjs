@@ -8,6 +8,12 @@ module.exports = {
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],
       },
+      colors: {
+        primary: {
+          DEFAULT: '#304FFE',
+          content: '#FFFFFF',
+        },
+      },
       fontSize: {
         'title-xl': ['36px', { lineHeight: '46px', letterSpacing: '0' }],
         'title-lg': ['28px', { lineHeight: '34px', letterSpacing: '0' }],
