@@ -1,0 +1,30 @@
+import * as React from 'react';
+import type { SVGProps } from 'react';
+const SvgBf = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    fill="none"
+    viewBox="0 0 24 24"
+    {...props}
+  >
+    <g clipPath="url(#BF_svg__a)">
+      <path
+        fill="#D80027"
+        d="M0 12C0 5.373 5.373 0 12 0s12 5.373 12 12c-.522 0-12 1.565-12 1.565z"
+      />
+      <path fill="#6DA544" d="M24 12c0 6.628-5.373 12-12 12S0 18.629 0 12" />
+      <path
+        fill="#FFDA44"
+        d="m12 7.825.906 2.79h2.934l-2.373 1.725.906 2.79L12 13.405 9.627 15.13l.906-2.79-2.373-1.725h2.934z"
+      />
+    </g>
+    <defs>
+      <clipPath id="BF_svg__a">
+        <path fill="#fff" d="M0 0h24v24H0z" />
+      </clipPath>
+    </defs>
+  </svg>
+);
+export default SvgBf;

@@ -1,0 +1,41 @@
+import * as React from 'react';
+import type { SVGProps } from 'react';
+const SvgLy = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    fill="none"
+    viewBox="0 0 24 24"
+    {...props}
+  >
+    <g clipPath="url(#LY_svg__a)">
+      <path
+        fill="#000"
+        d="M1.19 6.783A11.95 11.95 0 0 0 0 12c0 1.87.428 3.64 1.19 5.218L12 18.26l10.81-1.043A11.95 11.95 0 0 0 24 12c0-1.87-.428-3.64-1.19-5.217L12 5.739z"
+      />
+      <path
+        fill="#496E2D"
+        d="M1.191 17.217a12 12 0 0 0 10.81 6.782 12 12 0 0 0 10.808-6.782z"
+      />
+      <path
+        fill="#D80027"
+        d="M1.191 6.783H22.81A12 12 0 0 0 12 0 12 12 0 0 0 1.191 6.783"
+      />
+      <path
+        fill="#F0F0F0"
+        d="m14.793 9.805.985 1.357 1.594-.518L16.386 12l.985 1.357-1.594-.52-.986 1.357v-1.677l-1.593-.519 1.594-.517z"
+      />
+      <path
+        fill="#F0F0F0"
+        d="M12.106 15.39a3.391 3.391 0 1 1 1.614-6.375 4.174 4.174 0 1 0 0 5.967c-.48.26-1.03.408-1.614.408"
+      />
+    </g>
+    <defs>
+      <clipPath id="LY_svg__a">
+        <path fill="#fff" d="M0 0h24v24H0z" />
+      </clipPath>
+    </defs>
+  </svg>
+);
+export default SvgLy;

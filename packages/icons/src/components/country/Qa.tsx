@@ -1,0 +1,29 @@
+import * as React from 'react';
+import type { SVGProps } from 'react';
+const SvgQa = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    fill="none"
+    viewBox="0 0 24 24"
+    {...props}
+  >
+    <g clipPath="url(#QA_svg__a)">
+      <path
+        fill="#F0F0F0"
+        d="M12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12s5.373 12 12 12"
+      />
+      <path
+        fill="#751A46"
+        d="M24 12c0-6.627-5.373-12-12-12-2.348 0-4.537.675-6.387 1.84l2.63 1.117-3.547 1.508 3.547 1.507L4.696 7.48l3.547 1.507-3.547 1.507L8.243 12l-3.547 1.507 3.547 1.507-3.547 1.508 3.547 1.507-3.547 1.507 3.547 1.507-2.629 1.117A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12"
+      />
+    </g>
+    <defs>
+      <clipPath id="QA_svg__a">
+        <path fill="#fff" d="M0 0h24v24H0z" />
+      </clipPath>
+    </defs>
+  </svg>
+);
+export default SvgQa;

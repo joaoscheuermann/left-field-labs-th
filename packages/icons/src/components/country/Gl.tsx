@@ -1,0 +1,34 @@
+import * as React from 'react';
+import type { SVGProps } from 'react';
+const SvgGl = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    fill="none"
+    viewBox="0 0 24 24"
+    {...props}
+  >
+    <g clipPath="url(#GL_svg__a)">
+      <path
+        fill="#F0F0F0"
+        d="M0 12C0 5.373 5.373 0 12 0s12 5.373 12 12c-.522 0-12 1.565-12 1.565z"
+      />
+      <path
+        fill="#D80027"
+        d="M24 12c0 6.628-5.372 12-12 12-6.627 0-12-5.372-12-12"
+      />
+      <path
+        fill="#F0F0F0"
+        d="M8.348 17.74a5.74 5.74 0 1 0 0-11.479 5.74 5.74 0 0 0 0 11.479"
+      />
+      <path fill="#D80027" d="M2.608 12a5.74 5.74 0 0 1 11.479 0" />
+    </g>
+    <defs>
+      <clipPath id="GL_svg__a">
+        <path fill="#fff" d="M0 0h24v24H0z" />
+      </clipPath>
+    </defs>
+  </svg>
+);
+export default SvgGl;
