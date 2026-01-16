@@ -10,7 +10,7 @@ const SvgInfoCircle1 = (props: SVGProps<SVGSVGElement>) => (
     {...props}
   >
     <path
-      fill="#121212"
+      fill="currentColor"
       d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2m.75 14.5a.75.75 0 0 1-1.5 0v-4.571a.75.75 0 0 1 1.5 0zm-.73-7a1.005 1.005 0 0 1-1.005-1c0-.552.443-1 .995-1h.01a1 1 0 1 1 0 2"
     />
   </svg>

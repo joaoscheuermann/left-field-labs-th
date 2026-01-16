@@ -10,7 +10,7 @@ const SvgShield = (props: SVGProps<SVGSVGElement>) => (
     {...props}
   >
     <path
-      fill="#121212"
+      fill="currentColor"
       d="M21 10.889c0 6.667-5.667 10-9 11.111-3.333-1.111-9-4.444-9-11.111V5c5-1 6.778-1.889 9.018-3C14.223 3.111 16 4 21 5z"
     />
   </svg>
