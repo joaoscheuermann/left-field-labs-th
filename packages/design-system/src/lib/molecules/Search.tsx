@@ -18,7 +18,7 @@ export const Search = React.forwardRef<HTMLInputElement, SearchProps>(
     return (
       <div
         className={clsx(
-          'relative flex items-center w-full h-[40px] px-3 rounded-full transition-colors',
+          'relative flex flex-grow items-center w-full h-[40px] px-3 rounded-full transition-colors',
           'bg-primary-400 text-white',
           'focus-within:ring-2 focus-within:ring-white/50',
           'gap-2',

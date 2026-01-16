@@ -39,7 +39,7 @@ export const Header = ({ className, children, ...props }: PageHeaderProps) => {
   return (
     <header
       className={clsx(
-        'flex items-center justify-between shrink-0 gap-6',
+        'flex flex-grow items-center justify-between shrink-0 gap-6',
         className
       )}
       {...props}
