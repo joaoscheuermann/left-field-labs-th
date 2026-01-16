@@ -38,7 +38,10 @@ export const Root = ({ className, children, ...props }: PageRootProps) => {
 export const Header = ({ className, children, ...props }: PageHeaderProps) => {
   return (
     <header
-      className={clsx('flex items-center justify-between shrink-0', className)}
+      className={clsx(
+        'flex items-center justify-between shrink-0 gap-6',
+        className
+      )}
       {...props}
     >
       {children}
@@ -48,10 +51,7 @@ export const Header = ({ className, children, ...props }: PageHeaderProps) => {
 
 export const Body = ({ className, children, ...props }: PageBodyProps) => {
   return (
-    <main
-      className={clsx('flex-1 w-full overflow-y-auto', className)}
-      {...props}
-    >
+    <main className={clsx('flex-1 w-full', className)} {...props}>
       {children}
     </main>
   );

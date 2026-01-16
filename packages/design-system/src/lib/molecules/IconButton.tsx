@@ -90,25 +90,3 @@ export const Wrapper = React.forwardRef<
   }
 );
 Wrapper.displayName = 'IconButton.Wrapper';
-
-// --- Icon ---
-
-export interface IconButtonIconProps
-  extends React.HTMLAttributes<HTMLSpanElement> {
-  children: React.ReactNode;
-}
-
-export const Icon = ({
-  className,
-  children,
-  ...props
-}: IconButtonIconProps) => {
-  return (
-    <span
-      className={clsx('flex items-center justify-center', className)}
-      {...props}
-    >
-      {children}
-    </span>
-  );
-};

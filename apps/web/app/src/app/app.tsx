@@ -8,76 +8,58 @@ export function App() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const getActiveId = () => {
-    const path = location.pathname;
-    if (path === '/') return 'home';
-    if (path === '/about') return 'user';
-    if (path === '/chart') return 'chart';
-    if (path === '/chat') return 'chat';
-    return 'scan';
+  const routes = {
+    home: { id: 'home', path: '/', element: <Home /> },
+    chart: { id: 'chart', path: '/chart', element: <Home /> }, // Placeholder
+    scan: { id: 'scan', path: '/scan', element: <Home /> }, // Placeholder
+    chat: { id: 'chat', path: '/chat', element: <Home /> }, // Placeholder
+    user: { id: 'user', path: '/about', element: <About /> },
   };
 
-  const activeId = getActiveId();
-
-  const handleNavClick = (id: string) => {
-    switch (id) {
-      case 'home':
-        navigate('/');
-        break;
-      case 'user':
-        navigate('/about');
-        break;
-      case 'scan':
-        // navigate('/scan');
-        break;
-      case 'chart':
-        // navigate('/chart');
-        break;
-      case 'chat':
-        // navigate('/chat');
-        break;
-    }
-  };
+  const currentActivePage =
+    Object.values(routes).find((route) => route.path === location.pathname)
+      ?.id || 'home';
 
   return (
     <Page.Root>
       <Page.Body>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          {Object.values(routes).map((route) => (
+            <Route key={route.id} path={route.path} element={route.element} />
+          ))}
           <Route path="*" element={<Home />} />
         </Routes>
       </Page.Body>
       <Page.Navigation>
         <Navigation.Root className="shadow-2xl">
           <Navigation.Item
-            active={activeId === 'home'}
-            onClick={() => handleNavClick('home')}
+            active={currentActivePage === 'home'}
+            onClick={() => navigate(routes.home.path)}
           >
             <HomeIcon width={24} height={24} />
           </Navigation.Item>
 
           <Navigation.Item
-            active={activeId === 'chart'}
-            onClick={() => handleNavClick('chart')}
+            active={currentActivePage === 'chart'}
+            onClick={() => navigate(routes.chart.path)}
           >
             <ChartPie width={24} height={24} />
           </Navigation.Item>
 
-          <Navigation.ActionItem onClick={() => handleNavClick('scan')}>
+          <Navigation.ActionItem onClick={() => navigate(routes.scan.path)}>
             <ScanQr width={24} height={24} />
           </Navigation.ActionItem>
 
           <Navigation.Item
-            active={activeId === 'chat'}
-            onClick={() => handleNavClick('chat')}
+            active={currentActivePage === 'chat'}
+            onClick={() => navigate(routes.chat.path)}
           >
             <Chat width={24} height={24} />
           </Navigation.Item>
 
           <Navigation.Item
-            active={activeId === 'user'}
-            onClick={() => handleNavClick('user')}
+            active={currentActivePage === 'user'}
+            onClick={() => navigate(routes.user.path)}
           >
             <User width={24} height={24} />
           </Navigation.Item>
