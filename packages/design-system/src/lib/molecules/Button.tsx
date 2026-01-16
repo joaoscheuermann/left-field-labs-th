@@ -3,7 +3,7 @@ import clsx from 'clsx';
 
 // --- Types ---
 
-export type ButtonVariant = 'primary' | 'secondary' | 'destructive';
+export type ButtonVariant = 'primary' | 'secondary' | 'destructive' | 'white';
 
 export type ButtonSize = 'lg' | 'md' | 'sm';
 
@@ -62,6 +62,12 @@ export const Wrapper = React.forwardRef<HTMLButtonElement, ButtonWrapperProps>(
             'bg-red-500 text-white hover:bg-red-600 active:bg-red-700 focus:ring-red-500',
           outline:
             'border-[1.5px] border-red-500 text-red-500 bg-transparent hover:bg-red-50 active:bg-red-100 focus:ring-red-500',
+        },
+        white: {
+          solid:
+            'bg-white text-primary hover:bg-neutral-100 active:bg-neutral-200 focus:ring-white disabled:bg-neutral-300 disabled:text-neutral-500',
+          outline:
+            'border-[1.5px] border-white text-white bg-transparent hover:bg-white/10 active:bg-white/20 focus:ring-white disabled:border-neutral-500 disabled:text-neutral-500',
         },
       };
 

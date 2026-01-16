@@ -6,9 +6,12 @@ import {
   Box,
   CurrencySelector,
   Search,
+  BalanceDisplay,
+  Button,
 } from '@org/design-system';
 
 import { useCurrencyStore } from '../stores/currency.store';
+import { useBalanceStore } from '../stores/balance.store';
 
 import {
   DollarSendCircle,
@@ -16,14 +19,23 @@ import {
   Bank1,
   TrophyStar,
   Bell,
+  Wallet,
 } from '@org/icons';
 
 const Home = () => {
   const { currencyCode, setCurrencyCode } = useCurrencyStore();
+  const { balances } = useBalanceStore();
 
   const selectedCurrency =
     CurrencySelector.COUNTRIES.find((c) => c.code === currencyCode) ||
     CurrencySelector.COUNTRIES[0];
+
+  const currentBalance = balances[selectedCurrency.code] || 0;
+
+  const formattedNumber = new Intl.NumberFormat('en-US', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(currentBalance);
 
   return (
     <Box className="flex flex-col gap-4 relative w-full h-full">
@@ -41,11 +53,31 @@ const Home = () => {
             </IconButton.Wrapper>
           </Page.Header>
 
-          <Box className="flex flex-col items-center">
+          <Box className="flex flex-col items-center gap-3">
             <CurrencySelector.CurrencySelector
               value={selectedCurrency}
               onSelect={(country) => setCurrencyCode(country.code)}
             />
+
+            <Box className="flex flex-col items-center">
+              <BalanceDisplay.BalanceDisplay value={formattedNumber} />
+              <Typography
+                variant="body"
+                size="md"
+                weight="regular"
+                className="text-primary-100 opacity-90"
+              >
+                Available Balance
+              </Typography>
+            </Box>
+
+            {/* TODO: This Button can be a Organism that opens a Dialog to add funds and just calls a success callback when the user is done */}
+            <Button.Wrapper variant="white" size="md" outline>
+              <Button.Icon>
+                <Wallet className="text-white" />
+              </Button.Icon>
+              <Button.Label>Add Money</Button.Label>
+            </Button.Wrapper>
           </Box>
         </Box>
         <Box className="absolute bottom-[-44px] left-0 right-0 h-[88px] px-4">
