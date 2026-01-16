@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import { Box } from '../atoms/Box';
 
 // --- Types ---
 
@@ -71,11 +72,11 @@ export const Navigation = ({
   ...props
 }: PageNavigationProps) => {
   return (
-    <div
+    <Box
       className={clsx('w-full', sticky && 'sticky bottom-0', className)}
       {...props}
     >
       {children}
-    </div>
+    </Box>
   );
 };

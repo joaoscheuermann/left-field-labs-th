@@ -1,6 +1,7 @@
 import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
+import Transactions from './pages/Transactions';
 import Wip from './pages/Wip';
 import { Page, Navigation } from '@org/design-system';
 import { Home as HomeIcon, ChartPie, ScanQr, Chat, User } from '@org/icons';
@@ -11,18 +12,20 @@ export function App() {
 
   const routes = [
     {
-      id: 'home',
+      id: null,
       path: '/',
       element: <Home />,
       icon: HomeIcon,
       hideInNav: false,
+      navigateTo: '/',
     },
     {
       id: 'transactions',
-      path: '/transactions',
-      element: <Home />,
+      path: '/transactions/:tab',
+      element: <Transactions />,
       icon: ChartPie,
       hideInNav: false,
+      navigateTo: '/transactions/spending',
     },
     {
       id: 'scan',
@@ -31,6 +34,7 @@ export function App() {
       icon: ScanQr,
       isAction: true,
       hideInNav: false,
+      navigateTo: '/scan',
     },
     {
       id: 'chat',
@@ -38,6 +42,7 @@ export function App() {
       element: <Wip />,
       icon: Chat,
       hideInNav: false,
+      navigateTo: '/chat',
     },
     {
       id: 'user',
@@ -45,6 +50,7 @@ export function App() {
       element: <Wip />,
       icon: User,
       hideInNav: false,
+      navigateTo: '/about',
     },
     {
       id: 'wip',
@@ -52,18 +58,12 @@ export function App() {
       element: <Wip />,
       icon: undefined,
       hideInNav: true,
+      navigateTo: '/wip',
     },
   ];
 
-  const isRouteActive = (routePath: string) => {
-    if (routePath === '/' || routePath === '') {
-      return location.pathname === '/';
-    }
-    if (location.pathname === routePath) {
-      return true;
-    }
-    return location.pathname.startsWith(`${routePath}/`);
-  };
+  const slices = location.pathname.split('/').filter(Boolean);
+  const rootPath = slices[0] || null;
 
   return (
     <Page.Root>
@@ -96,7 +96,7 @@ export function App() {
               return (
                 <Navigation.Item
                   key={route.id}
-                  active={isRouteActive(route.path)}
+                  active={rootPath === route.id}
                   onClick={() => navigate(route.path)}
                 >
                   {Icon && <Icon width={24} height={24} />}
