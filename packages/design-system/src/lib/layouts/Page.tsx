@@ -9,6 +9,7 @@ export interface PageRootProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export interface PageHeaderProps extends React.HTMLAttributes<HTMLElement> {
   children?: React.ReactNode;
+  sticky?: boolean;
 }
 
 export interface PageBodyProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -25,7 +26,7 @@ export const Root = ({ className, children, ...props }: PageRootProps) => {
   return (
     <div
       className={clsx(
-        'flex flex-col gap-2 h-screen w-screen bg-black text-white overflow-hidden p-4',
+        'flex flex-col gap-2 h-screen w-screen bg-black text-white overflow-hidden overflow-y-scroll p-4',
         className
       )}
       {...props}
@@ -35,11 +36,17 @@ export const Root = ({ className, children, ...props }: PageRootProps) => {
   );
 };
 
-export const Header = ({ className, children, ...props }: PageHeaderProps) => {
+export const Header = ({
+  className,
+  sticky = false,
+  children,
+  ...props
+}: PageHeaderProps) => {
   return (
     <header
       className={clsx(
         'flex flex-grow items-center justify-between shrink-0 gap-6',
+        sticky && 'sticky top-0',
         className
       )}
       {...props}
@@ -64,7 +71,10 @@ export const Navigation = ({
   ...props
 }: PageNavigationProps) => {
   return (
-    <div className={clsx('w-full', className)} {...props}>
+    <div
+      className={clsx('w-full', sticky && 'sticky bottom-0', className)}
+      {...props}
+    >
       {children}
     </div>
   );

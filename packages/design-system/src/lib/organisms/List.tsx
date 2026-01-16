@@ -26,7 +26,7 @@ export const Item = ({
   return (
     <li
       className={clsx(
-        'flex items-center p-4 gap-4 bg-neutral-50 rounded-2xl w-full',
+        'flex items-center p-4 gap-2 rounded-2xl w-full',
         className
       )}
       {...props}

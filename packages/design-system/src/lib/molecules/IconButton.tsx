@@ -72,6 +72,12 @@ export const Wrapper = React.forwardRef<
           outline:
             'border-[1.5px] border-white text-white bg-transparent hover:bg-white/10 active:bg-white/20 focus:ring-white disabled:border-neutral-500 disabled:text-neutral-500',
         },
+        ghost: {
+          solid:
+            'bg-transparent text-inherit hover:bg-neutral-500/10 active:bg-neutral-500/20 focus:ring-neutral-500 disabled:opacity-50',
+          outline:
+            'bg-transparent border-[1.5px] border-transparent text-inherit hover:bg-neutral-500/10 active:bg-neutral-500/20 focus:ring-neutral-500 disabled:opacity-50',
+        },
       };
 
       return variants[variant][outline ? 'outline' : 'solid'];
