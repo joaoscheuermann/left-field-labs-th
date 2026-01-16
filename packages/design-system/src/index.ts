@@ -13,3 +13,4 @@ export * as List from './lib/organisms/List';
 export * as Dialog from './lib/organisms/Dialog';
 
 export * as Page from './lib/layouts/Page';
+export * as BarChart from './lib/organisms/BarChart';

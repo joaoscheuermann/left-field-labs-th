@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Divider,
   Page,
@@ -205,7 +206,7 @@ const Home = () => {
             <IconButton.Wrapper
               size="sm"
               variant="ghost"
-              onClick={() => navigate('/wip')}
+              onClick={() => navigate('/transactions/spending')}
               className="text-white"
             >
               <ArrowRight width={20} height={20} />
@@ -215,63 +216,68 @@ const Home = () => {
           {/* List Container */}
           <Box className="flex flex-col rounded-xl bg-neutral-900 px-4">
             <List.Root className="!gap-0">
-              {transactions.map((transaction, index, transactions) => {
-                const isLastItem = index + 1 === transactions.length;
+              {['spending', 'income', 'bills', 'savings'].map(
+                (type, index, array) => {
+                  const isLastItem = index + 1 === array.length;
+                  const totalAmount = transactions
+                    .filter((t) => t.type === type)
+                    .reduce((acc, curr) => acc + curr.amount, 0);
 
-                return (
-                  <>
-                    <List.Item
-                      key={transaction.id}
-                      className="rounded-[24px] cursor-pointer py-4 !px-0 items-center"
-                      onClick={() =>
-                        navigate(`/transactions/${transaction.type}`)
-                      }
-                    >
-                      <List.Leading>
-                        <Box
-                          className={clsx(
-                            'w-12 h-12 rounded-full flex items-center justify-center',
-                            getColorForType(transaction.type)
-                          )}
-                        >
-                          {getIconForType(transaction.type)}
-                        </Box>
-                      </List.Leading>
-                      <List.Body className="">
-                        <Typography
-                          variant="body"
-                          size="md"
-                          className="text-neutral text-neutral-100"
-                        >
-                          {transaction.title}
-                        </Typography>
-                      </List.Body>
-                      <List.Trailing className="flex items-center gap-3">
-                        <Typography
-                          variant="body"
-                          size="xl"
-                          className={clsx(
-                            // 'font-medium',
-                            transaction.amount < 0
-                              ? 'text-red-500'
-                              : 'text-green-500'
-                          )}
-                        >
-                          {transaction.amount < 0
-                            ? '-$' + Math.abs(transaction.amount)
-                            : '$' + transaction.amount}
-                        </Typography>
-                        <AngleRight
-                          width={24}
-                          height={24}
-                          className="text-neutral-300"
-                        />
-                      </List.Trailing>
-                    </List.Item>
-                    {!isLastItem && <Divider />}
-                  </>
-                );
-              })}
+                  return (
+                    <React.Fragment key={type}>
+                      <List.Item
+                        className="rounded-[24px] cursor-pointer py-4 !px-0 items-center"
+                        onClick={() => navigate(`/transactions/${type}`)}
+                      >
+                        <List.Leading>
+                          <Box
+                            className={clsx(
+                              'w-12 h-12 rounded-full flex items-center justify-center',
+                              getColorForType(type)
+                            )}
+                          >
+                            {getIconForType(type)}
+                          </Box>
+                        </List.Leading>
+                        <List.Body className="">
+                          <Typography
+                            variant="body"
+                            size="md"
+                            className="text-neutral text-neutral-100 capitalize"
+                          >
+                            {type}
+                          </Typography>
+                        </List.Body>
+                        <List.Trailing className="flex items-center gap-3">
+                          <Typography
+                            variant="body"
+                            size="xl"
+                            className={clsx(
+                              // 'font-medium',
+                              totalAmount < 0
+                                ? 'text-red-500'
+                                : 'text-green-500'
+                            )}
+                          >
+                            {totalAmount
+                              .toLocaleString('en-US', {
+                                style: 'currency',
+                                currency: 'USD',
+                              })
+                              .replace(/^(\D+)/, '$1 ')}
+                          </Typography>
+                          <AngleRight
+                            width={24}
+                            height={24}
+                            className="text-neutral-300"
+                          />
+                        </List.Trailing>
+                      </List.Item>
+                      {!isLastItem && <Divider />}
+                    </React.Fragment>
+                  );
+                }
+              )}
             </List.Root>
           </Box>
         </Box>

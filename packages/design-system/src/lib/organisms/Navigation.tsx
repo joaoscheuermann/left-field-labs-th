@@ -31,7 +31,7 @@ export const Root = ({
       className={clsx(
         'relative bg-[#1E1E1E]',
         'flex items-center justify-between',
-        'w-full h-[64px]',
+        'w-full min-h-[64px]',
         'rounded-[12px] px-[24px]',
         className
       )}
@@ -61,15 +61,16 @@ export const Item = ({
   return (
     <div
       className={clsx(
-        'flex flex-col items-center justify-center h-full w-[48px]',
+        'flex flex-col items-center justify-center h-full w-[48px] py-2',
         disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer',
-        'relative',
+        'gap-1',
         className
       )}
       onClick={handleClick}
       aria-disabled={disabled}
       {...props}
     >
+      <div className="h-[4px]"></div>
       <div
         className={clsx(
           'flex items-center justify-center transition-colors duration-200',
@@ -81,7 +82,7 @@ export const Item = ({
 
       <div
         className={clsx(
-          'absolute bottom-3 left-1/2 -translate-x-1/2 h-[4px] w-[4px] rounded-full transition-colors duration-200',
+          'left-1/2 -translate-x-1/2 h-[4px] w-[4px] rounded-full transition-colors duration-200',
           active && !disabled ? 'bg-primary' : 'bg-transparent'
         )}
       />

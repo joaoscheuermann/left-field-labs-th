@@ -86,7 +86,7 @@ export function App() {
                 return (
                   <Navigation.ActionItem
                     key={route.id}
-                    onClick={() => navigate(route.path)}
+                    onClick={() => navigate(route.navigateTo)}
                   >
                     {Icon && <Icon width={24} height={24} />}
                   </Navigation.ActionItem>
@@ -97,7 +97,7 @@ export function App() {
                 <Navigation.Item
                   key={route.id}
                   active={rootPath === route.id}
-                  onClick={() => navigate(route.path)}
+                  onClick={() => navigate(route.navigateTo)}
                 >
                   {Icon && <Icon width={24} height={24} />}
                 </Navigation.Item>

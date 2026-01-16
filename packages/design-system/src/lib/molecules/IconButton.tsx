@@ -31,15 +31,9 @@ export const Wrapper = React.forwardRef<
     },
     ref
   ) => {
-    // Base styles
     const baseStyles =
       'inline-flex items-center justify-center rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2';
 
-    // Size variants (Using padding to hug content, assuming icon is size of text)
-    // Image shows:
-    // lg: padding 16px (Height 56px) - Icon is likely around 24px
-    // md: padding 12px (Height 48px)
-    // sm: padding 8px? (Height 40px)
     const sizeStyles = {
       lg: 'p-[16px]',
       md: 'p-[12px]',
